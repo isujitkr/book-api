@@ -144,7 +144,7 @@ const getBooksByUser = async (req, res) => {
     }
 
     const transactions = await Transaction.find({ user: user._id }).populate('book', 'name');
-
+    
     if(transactions.length == 0){
       return res.status(404).json({ message: 'No book issued to this person' });
     }
